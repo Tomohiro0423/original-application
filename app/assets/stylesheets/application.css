@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+ 
+.welcome {
+    padding: 50px 40px 30px 40px;
+    background-image: url(/assets/toppage.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}

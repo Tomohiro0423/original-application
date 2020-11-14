@@ -1,0 +1,20 @@
+<div class="row">
+  <aside class="col-sm-4">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title text-center"><%= @user.name %></h3>
+      </div>
+      <div class="card-body text-center">
+        <img class="rounded-circle img-fluid border" src="<%= gravatar_url(@user, { size: 200 }) %>" alt="ユーザ画像">
+      </div>
+    </div>
+  </aside>
+  <div class="col-sm-8">
+    <ul class="nav nav-tabs nav-justified mb-3">
+      <li class="nav-item"><a href="#" class="nav-link">投稿一覧</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">いいねした投稿</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">フォロー</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">フォロワー</a></li>
+    </ul>
+  </div>
+</div>
