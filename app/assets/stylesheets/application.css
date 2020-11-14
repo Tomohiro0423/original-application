@@ -21,3 +21,9 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.jumbotron {
+  background-image: url("toppage.jpg");
+  background-size: cover;
+  background-position: center 60%;
+}

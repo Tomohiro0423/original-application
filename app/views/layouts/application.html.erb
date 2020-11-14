@@ -18,11 +18,17 @@
   </head>
 
   <body>
-    <%= render 'layouts/navbar' %>
-    <%= render 'layouts/topimage' %>
+    <% if logged_in? %>
+      <%= render 'layouts/navbar' %>
+    <% else %>  
+      <%= render 'layouts/navbar' %>
+      <%= render 'layouts/topimage' %>
+    <% end %>
+    
+    <%= render 'layouts/flash_messages' %>
   
     <div class="container">
-      <%= render 'layouts/flash_messages' %>
+     
 
     <%= yield %>
   </body>

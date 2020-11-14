@@ -1,14 +1,32 @@
-<header class="mt-2 mb-2">
-  <nav class="navbar navbar-expand-sm navbar-dark bg-white text-dark">
-    <a class="navbar-brand text-dark" href="/">FRUGIDAYS</a>
+<header>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand text-white" href="/">FRUGIDAYS</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
-        　<%= link_to "新規アカウント登録", "signup", class: "btn btn-outline-dark mr-2" %>
-        　<%= link_to "ログイン", "#", class: "btn btn-outline-dark" %>
+        <% if logged_in? %>
+          <li class="nav-item"><%= link_to 'マイページ', user_path(current_user) , class: 'btn btn-outline-light' %></li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle text-white border " data-toggle="dropdown"></a>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li class="dropdown-item">投稿一覧</li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item">いいねした投稿</li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item">フォロー</li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item">フォロワー</li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item"><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+            </ul>
+          </li>
+        <% else %>
+        　<li class="nav-item"><%= link_to "新規アカウント登録", "signup", class: "btn btn-outline-light mr-2" %></li>
+        　<li class="nav-item"><%= link_to "ログイン", "login", class: "btn btn-outline-light" %></li>
+        <% end %>
       </ul>
     </div>
   </nav>
