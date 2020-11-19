@@ -6,6 +6,7 @@
       </div>
       <div class="card-body text-center">
         <img class="rounded-circle img-fluid border border-secondary" src="<%= gravatar_url(@user, { size: 200 }) %>" alt="ユーザ画像">
+        <%= render 'relationships/follow_button', user: @user %>
       </div>
     </div>
   </aside>
