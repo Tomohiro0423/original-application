@@ -8,11 +8,12 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <% if logged_in? %>
+          <li class="nav-item"><%= link_to "新規投稿", new_post_path , class: "btn btn-outline-light mr-3" %></li>
           <li class="nav-item"><%= link_to 'マイページ', user_path(current_user) , class: 'btn btn-outline-light' %></li>
           <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle text-white border " data-toggle="dropdown"></a>
+            <a href="#" class="nav-link dropdown-toggle text-white" data-toggle="dropdown"></a>
             <ul class="dropdown-menu dropdown-menu-right">
-              <li class="dropdown-item">投稿一覧</li>
+              <li class="dropdown-item"><%= link_to "投稿一覧", posts_path, class: "text-dark" %></li>
               <li class="dropdown-divider"></li>
               <li class="dropdown-item">いいねした投稿</li>
               <li class="dropdown-divider"></li>
@@ -20,12 +21,12 @@
               <li class="dropdown-divider"></li>
               <li class="dropdown-item">フォロワー</li>
               <li class="dropdown-divider"></li>
-              <li class="dropdown-item"><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+              <li class="dropdown-item"><%= link_to 'ログアウト', logout_path, method: :delete, class: "text-dark" %></li>
             </ul>
           </li>
         <% else %>
-        　<li class="nav-item"><%= link_to "新規アカウント登録", "signup", class: "btn btn-outline-light mr-2" %></li>
-        　<li class="nav-item"><%= link_to "ログイン", "login", class: "btn btn-outline-light" %></li>
+        　<li class="nav-item"><%= link_to "新規アカウント登録", signup_path, class: "btn btn-outline-light mr-2" %></li>
+        　<li class="nav-item"><%= link_to "ログイン", login_path, class: "btn btn-outline-light" %></li>
         <% end %>
       </ul>
     </div>

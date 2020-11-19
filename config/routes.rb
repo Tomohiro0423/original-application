@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "posts#index"
+  root to: 'toppages#index'
   
   resources :posts
   
@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   
   get 'signup', to: 'users#new'
   resources :users, only: [:index, :show, :new, :create]
+  
 end

@@ -15,15 +15,28 @@
  */
  
 .welcome {
-    padding: 50px 40px 30px 40px;
+    padding: 50px 40px 90px 40px;
     background-image: url(/assets/toppage.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-.jumbotron {
-  background-image: url("toppage.jpg");
-  background-size: cover;
-  background-position: center 60%;
+.welcomecontent {
+    background: #fff;
+    padding: 4px;
+    border-radius: 15px;
+    width: 400px;
+    margin: 35px auto auto auto;
+    opacity: 0.9;
+}
+
+.img-thumbnail {
+  min-height: 50%;
+  max-height: 50%;
+  object-fit: contain;
+}
+
+.pagination {
+  justify-content: center;
 }

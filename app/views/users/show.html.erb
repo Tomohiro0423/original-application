@@ -1,20 +1,37 @@
-<div class="row">
-  <aside class="col-sm-4">
-    <div class="card">
+<div class="row mt-5">
+  <aside class="col-sm-3">
+    <div class="card border border-secondary">
       <div class="card-header">
         <h3 class="card-title text-center"><%= @user.name %></h3>
       </div>
       <div class="card-body text-center">
-        <img class="rounded-circle img-fluid border" src="<%= gravatar_url(@user, { size: 200 }) %>" alt="ユーザ画像">
+        <img class="rounded-circle img-fluid border border-secondary" src="<%= gravatar_url(@user, { size: 200 }) %>" alt="ユーザ画像">
       </div>
     </div>
   </aside>
-  <div class="col-sm-8">
+  <div class="col-sm-9">
     <ul class="nav nav-tabs nav-justified mb-3">
-      <li class="nav-item"><a href="#" class="nav-link">投稿一覧</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">いいねした投稿</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">フォロー</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">フォロワー</a></li>
+      <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link text-dark <%= 'active' if current_page?(user_path(@user)) %>">投稿一覧</a></li>
+      <li class="nav-item"><a href="#" class="nav-link text-dark">いいねした投稿</a></li>
+      <li class="nav-item"><a href="#" class="nav-link text-dark">フォロー</a></li>
+      <li class="nav-item"><a href="#" class="nav-link text-dark">フォロワー</a></li>
     </ul>
+    <div class="row">
+    <% @posts.each do |post| %>
+      <div class="card mt-5 mr-2 ml-3 border border-secondary" style="width: 16rem;">
+        <%= link_to post, class: "card-body text-dark" do %>
+          <%= image_tag post.image.url, :width => '100%', :height => '180' , class: "img-fluid img-thumbnail"%>
+          <div class="card-body">
+            <h5 class="card-title pt-3"><%= post.title %></h5>
+          </div>
+          <div class="card-body mt-0">
+            <img class="mr-3 rounded-circle border border-secondary" src="<%= gravatar_url(post.user, { size: 60 }) %>" alt="">
+            <%= post.user.name %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="mt-5"><%= paginate @posts %></div>
   </div>
 </div>
