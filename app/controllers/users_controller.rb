@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  
   def index
     @users = User.order(id: :desc).page(params[:page]).per(10)
   end
@@ -22,6 +23,16 @@ class UsersController < ApplicationController
       flash.now[:danger] = 'ユーザの登録に失敗しました。'
       render :new
     end
+  end
+  
+  def followings
+    @user = User.find(params[:id])
+    @followings = @user.followings.page(params[:page]).per(10)
+  end
+  
+  def followers
+    @user = User.find(params[:id])
+    @followers = @user.followers.page(params[:page]).per(10)
   end
   
    private

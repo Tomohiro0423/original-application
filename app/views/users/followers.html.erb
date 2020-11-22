@@ -6,7 +6,6 @@
       </div>
       <div class="card-body text-center">
         <img class="rounded-circle img-fluid border border-secondary" src="<%= gravatar_url(@user, { size: 200 }) %>" alt="ユーザ画像">
-        <%= render 'relationships/follow_button', user: @user %>
       </div>
     </div>
   </aside>
@@ -17,22 +16,17 @@
       <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link text-dark <%= 'active' if current_page?(followings_user_path(@user)) %>">フォロー</a></li>
       <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link text-dark <%= 'active' if current_page?(followers_user_path(@user)) %>">フォロワー</a></li>
     </ul>
-    <div class="row">
-    <% @posts.each do |post| %>
-      <div class="card mt-5 mr-2 ml-3 border border-secondary" style="width: 16rem;">
-        <%= link_to post, class: "card-body text-dark" do %>
-          <%= image_tag post.image.url, :width => '100%', :height => '180' , class: "img-fluid img-thumbnail"%>
-          <div class="card-body">
-            <h5 class="card-title pt-3"><%= post.title %></h5>
-          </div>
-          <div class="card-body mt-0">
-            <img class="mr-3 rounded-circle border border-secondary" src="<%= gravatar_url(post.user, { size: 60 }) %>" alt="">
-            <%= post.user.name %>
-          </div>
+    <div class="w-100">
+      <ul class="list-inline mt-5 ml-3">
+        <% @followers.each do |user| %>
+          <li class="media border border-secondary form-inline d-flex align-items-around justify-content-around">
+            <img class="m-2 rounded-circle border" src="<%= gravatar_url(user, { size: 50 }) %>" alt="">
+            <h3 class="pt-3"><%= user.name %></h3>
+            <%= render 'relationships/follow_button', user: user %>
+          </li>
         <% end %>
-      </div>
-    <% end %>
-  </div>
-  <div class="mt-5"><%= paginate @posts %></div>
+      </ul>
+      <div class="mt-5"><%= paginate @followers %></div>
+    </div>
   </div>
 </div>

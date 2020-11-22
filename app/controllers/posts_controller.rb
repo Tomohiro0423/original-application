@@ -4,8 +4,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    @user = User.find_by(params[:id])
-    @post = Post.find_by(id:params[:id])
+    @post = Post.find(params[:id])
+    @user = @post.user
   end
 
   def new
@@ -54,5 +54,4 @@ class PostsController < ApplicationController
       redirect_to root_url
     end
   end
-  
 end
