@@ -19,7 +19,7 @@
     <div class="w-100">
       <ul class="list-inline mt-5 ml-3">
         <% @followings.each do |user| %>
-          <li class="media border border-secondary form-inline d-flex align-items-around justify-content-around">
+          <li class="mb-2 media border border-secondary form-inline d-flex align-items-around justify-content-around">
             <img class="m-2 rounded-circle border" src="<%= gravatar_url(user, { size: 50 }) %>" alt="">
             <h3 class="pt-3"><%= user.name %></h3>
             <%= render 'relationships/follow_button', user: user %>

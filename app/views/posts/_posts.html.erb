@@ -6,9 +6,9 @@
         <%= link_to post, class: "card-body text-dark" do %>
           <%= image_tag post.image.url, :width => '100%', :height => '180' , class: "img-fluid img-thumbnail"%>
           <div class="card-body">
-            <h5 class="card-title pt-3"><%= post.title %></h5>
+            <h5 class="pt-3"><%= post.title.truncate(10) %></h5>
           </div>
-          <div class="card-body mt-0">
+          <div class="card-body">
             <img class="mr-3 rounded-circle border border-secondary" src="<%= gravatar_url(post.user, { size: 60 }) %>" alt="">
             <%= post.user.name %>
           </div>

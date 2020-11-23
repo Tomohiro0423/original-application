@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   root to: 'toppages#index'
   
-  resources :posts
+  resources :posts do
+    resources :comments, only: [:create]
+  end
+  resources :comments, only: [:destroy]
   
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
