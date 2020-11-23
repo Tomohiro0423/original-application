@@ -2,7 +2,7 @@
   <aside class="col-sm-3">
     <div class="card border border-secondary">
       <div class="card-header">
-        <h3 class="card-title text-center"><%= @user.name %></h3>
+        <h5 class="card-title text-center pt-2"><%= @user.name %></h5>
       </div>
       <div class="card-body text-center">
         <img class="rounded-circle img-fluid border border-secondary" src="<%= gravatar_url(@user, { size: 200 }) %>" alt="ユーザ画像">
@@ -14,9 +14,19 @@
   </aside>
   <div class="col-sm-9 border border-secondary text-center">
     <h1 class="card-title pt-5 pb-4"><%= @post.title %></h1>
-    <%= image_tag @post.image.url, :width => '100%', :height => '180' , class: "img-fluid img-thumbnail"%>
+    <%= image_tag @post.image.url, :width => '100%', :height => '50%' , class: "img-fluid img-thumbnail"%>
     <h1 class="card-title pt-5 pb-5">コーディネートの紹介</h1>
     <h4><%= @post.content %></h4>
+    <% if logged_in? %>
+    <div class="mt-5 mb-3">
+      <%= render "favorites/favorite_button", post: @post %>
+    </div>
+    <div>
+      <% if current_user == @post.user %>
+        <%= link_to "投稿削除", @post, method: :delete, data: { confirm: "投稿を削除しますか？" }, class: 'btn btn-danger btn-sm' %>
+      <% end %>
+    </div>
+    <% end %>
   </div>
 </div>
 <div class="row justify-content-end">

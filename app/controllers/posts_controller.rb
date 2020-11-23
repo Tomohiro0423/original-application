@@ -43,7 +43,7 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @post.destroy
     flash[:success] = '投稿を削除しました。'
-    redirect_back(fallback_location: root_path)
+    redirect_to user_path(current_user)
   end
   
   private
