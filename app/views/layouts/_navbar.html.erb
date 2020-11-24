@@ -15,7 +15,7 @@
             <ul class="dropdown-menu dropdown-menu-right">
               <li class="dropdown-item"><%= link_to "投稿一覧", user_path(current_user), class: "text-dark" %></li>
               <li class="dropdown-divider"></li>
-              <li class="dropdown-item">いいねした投稿</li>
+              <li class="dropdown-item"><%= link_to "お気に入りした投稿", likes_user_path(current_user), class: "text-dark" %></li>
               <li class="dropdown-divider"></li>
               <li class="dropdown-item"><%= link_to "フォロー", followings_user_path(current_user), class: "text-dark" %></li>
               <li class="dropdown-divider"></li>
