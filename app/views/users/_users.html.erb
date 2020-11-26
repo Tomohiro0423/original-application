@@ -6,7 +6,7 @@
       <ul class="list-inline mt-5">
         <% users.each do |user| %>
           <%= link_to user, class: "text-dark" do %>
-            <li class="mb-2 media border border-secondary form-inline d-flex align-items-around justify-content-start">
+            <li class="mb-2 media border border-secondary rounded form-inline d-flex align-items-around justify-content-start">
               <img class="m-2 ml-5 rounded-circle border" src="<%= gravatar_url(user, { size: 50 }) %>" alt="">
               <h3 class="pt-3 pl-5"><%= user.name %></h3>
             </li>
