@@ -28,8 +28,8 @@ class PostsController < ApplicationController
       redirect_to root_url
     else
       @posts = current_user.posts.order(id: :desc).page(params[:page])
-      flash.now[:danger] = 'コーディネートの投稿に失敗しました。'
-      render 'posts/index'
+      flash[:danger] = 'コーディネートの投稿に失敗しました。'
+      render :new
     end
   end
 

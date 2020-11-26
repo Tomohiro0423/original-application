@@ -1,4 +1,4 @@
-<div class="col-sm-6 offset-sm-3 rounded text-center text-white bg-primary p-3 mt-5 mb-5">
+<div class="col-sm-6 offset-sm-3 rounded text-center text-white bg-dark p-3 mt-5 mb-5">
   <h3>新規投稿</h3>
 </div>
 
@@ -6,6 +6,7 @@
   <div class="col-sm-6 offset-sm-3">
 
     <%= form_with(model: @post, local: true) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
      
       <div class="form-group">
         <%= f.label :image, '画像を選択' %>
@@ -23,7 +24,7 @@
         <%= f.text_area :content, class: 'form-control form-control-lg' %>
       </div>
 
-      <%= f.submit '投稿', class: 'btn btn-primary btn-block mt-5 mb-4' %>
+      <%= f.submit '投稿', class: 'btn btn-info btn-block mt-5 mb-4' %>
     <% end %>
   </div>
 </div>
