@@ -1,18 +1,20 @@
-<div class="col-sm-9 col-xs-12 mt-5 text-center">
-  <h3>最新の投稿</h3>
+<div class="col-sm-9 col-sm-push-3 mt-5 text-center">
+  <h3 class ="pb-4">最新の投稿</h3>
   <div class="row">
     <% posts.each do |post| %>
-      <div class="card mt-5 mr-2 ml-3 border border-secondary" style="width: 16rem;">
-        <%= link_to post, class: "card-body text-dark" do %>
-          <%= image_tag post.image.url, :width => '100%', :height => '100%' , class: "img-fluid img-thumbnail"%>
-          <div class="card-body">
-            <h5 class="pt-3"><%= post.title.truncate(8) %></h5>
-          </div>
-          <div class="card-body">
-            <img class="mr-3 rounded-circle border border-secondary" src="<%= gravatar_url(post.user, { size: 60 }) %>" alt="">
-            <%= post.user.name %>
-          </div>
-        <% end %>
+      <div class ="col-sm-4 col-xs-12">
+        <div class="card mt-3 border border-secondary">
+          <%= link_to post, class: "card-body text-dark" do %>
+            <%= image_tag post.image.thumb.url %>
+            <div class="card-body">
+              <h5 class="pt-3"><%= post.title.truncate(8) %></h5>
+            </div>
+            <div class="card-body">
+              <img class="mr-3 rounded-circle border border-secondary" src="<%= gravatar_url(post.user, { size: 60 }) %>" alt="">
+              <%= post.user.name %>
+            </div>
+          <% end %>
+        </div>
       </div>
     <% end %>
   </div>
