@@ -1,5 +1,5 @@
 <div class="row mt-5">
-  <aside class="col-sm-3">
+  <aside class="col-sm-3  mb-3">
     <div class="card border border-secondary">
       <div class="card-header">
         <h5 class="card-title text-center pt-2"><%= @user.name %></h5>
@@ -17,7 +17,7 @@
       <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link text-dark <%= 'active' if current_page?(followers_user_path(@user)) %>">フォロワー</a></li>
     </ul>
     <div class="w-100">
-      <ul class="list-inline mt-5 ml-3">
+      <ul class="list-inline mt-4 ml-3">
         <% @followings.each do |user| %>
           <%= link_to user, class: "text-dark" do %>
             <li class="mb-2 media border border-secondary rounded form-inline d-flex align-items-around justify-content-start">
